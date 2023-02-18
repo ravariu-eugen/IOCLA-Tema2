@@ -1,0 +1,24 @@
+rotp:
+    Parcurgem plaintext de la stanga la dreapta si key de la dreapta la stanga.
+    Punem in ciphertext fiecare octet din plaintext pe care facem operatia de xor cu
+octetul din key corespunzator 
+
+ages:
+    Parcurgem vectorul de date si comparam fiecare data de nastere cu data prezentului
+    Mai intai, varsta e diferenta dintre anul curent si anul nasterii. Daca luna nasterii
+este mai mica decat luna prezentului, sau lunile sunt egale si ziua nasterii este mai mica
+decat ziua prezentului, decrementam valoarea varstei
+    Scriem fiecare varsta obtinuta in vectorul de varste
+
+columnar:
+    Pentru fiecare valoare a vectorului key, parcurgem coloana corespunzatoare si o concatenam
+la ciphertext. Pentru a reprezenta sirul haystack ca un tabel cu len_cheie coloane, incepem cu 
+indexul coloanei si adunam valoarea len_cheie pentru a trece in casuta de mai jos
+    haystack[i][j] = haystack[j + i * len_cheie]
+
+cache:
+    Pentru o adresa, tag-ul sau este valoarea adresei fara ultimiii 3 octeti
+    Daca tag-ul adresei se afla in vectorul tags (CACHE HIT), inseamna, octetul de la adresa data 
+se afla in cache, la linia in care se afla tag-ul in tags, cu un offset egal cu (adresa-(tag<<3))
+    Daca tag-ul nu se afla in tags(CACHE MISS), punem tag-ul pe linia to_replace din tags si
+punem pe linia to_replace din cache octetii cu acelasi tag ca si adresa initiala
